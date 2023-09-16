@@ -11,6 +11,10 @@ body {
 	padding-bottom: 100px;
 }
 
+a {
+	color: var(--text);
+}
+
 .c-game-rules {
 	display: inline-block;
 	text-align: left;
