@@ -1,0 +1,75 @@
+body {
+	background-color: var(--main-bg);
+	color: var(--text);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	line-height: 1.3;
+	user-select: none;
+	padding-bottom: 100px;
+}
+
+a {
+	color: var(--text);
+}
+
+.c-game-rules {
+	display: inline-block;
+	text-align: left;
+	margin: auto;
+}
+
+.c-create-game {
+	border: 5px solid var(--menu-border);
+	background-color: var(--menu-bg);
+	margin: 10px;
+	padding: 5px 10px;
+}
+
+#c {
+	border: 5px solid var(--c-border);
+	touch-action: manipulation;
+}
+
+.c-game-board {
+	display: inline-block;
+	text-align: left;
+	font-size: 16px;
+}
+
+.c-options {
+	margin-top: 20px;
+	width: 300px;
+}
+
+.c-theme {
+	border: solid thin;
+	padding: 4px 8px;
+	border-radius: 2px;
+}
+
+.c-theme-light {
+	color: #000;
+	background: #fff;
+	border-color: #000;
+}
+
+.c-theme-dark {
+	color: #eee;
+	background: #333;
+	border-color: #eee;
+}
+
+.c-theme-black {
+	color: #fff;
+	background: #000;
+	border-color: #fff;
+}
+
+.c-theme-mystic {
+	color: #cce;
+	background: #224;
+	border-color: #cce;
+}

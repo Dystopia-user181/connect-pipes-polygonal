@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Connect the Pipes</title>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link rel="stylesheet" type="text/css" href="themes/default.css" id="theme-css" >
+		<script type="text/javascript" src="queue.js" defer></script>
+		<script type="text/javascript" src="polygon.js" defer></script>
+		<script type="text/javascript" src="boards.js" defer></script>
+		<script type="text/javascript" src="options.js" defer></script>
+		<script type="text/javascript" src="canvas.js" defer></script>
+	</head>
+	<body>
+		<h1>Connect the Pipes</h1>
+		<span class="c-game-rules">
+			<b>Left click</b> to rotate pipes clockwise.<br>(<b>Short press</b> on touch devices)
+			<br><br>
+			<b>Shift+left-click</b> to rotate anticlockwise.
+			<br><br>
+			<b>Right click</b> to mark a pipe as confirmed.<br>(<b>Long press</b> on touch devices)
+			<br><br>
+			<b>Ctrl+Z</b> to Undo, <b>Ctrl+Y</b> to Redo.
+			<br>
+			<br>
+			<a target="_blank" href="howtoplay.html">Read how to play</a>
+			<br>
+			<br>
+		</span>
+		<span class="c-game-rules">
+			<b>Rules:<br></b>
+			1. All pipes must be connected to the source of water at the centre.
+			<br>
+			2. There should not be any leakages within the pipes.
+			<br>
+			3. Pipes should not form any cycles.
+			<br>
+			If a cycle is formed, the involved nodes will be highlighted.
+			<br>
+			4. There may exist multiple solutions to the game.
+		</span>
+		<div class="c-create-game">
+			<b>Make new game</b>
+			<br>
+			<br>
+			<label for="board-type">Board type:</label>
+			<select name="board-types" id="board-type">
+				<option value="square">Squares</option>
+				<option value="squareWrap">Squares (Wraparound)</option>
+				<option value="hexagon">Hexagons</option>
+				<option value="triangle">Triangles</option>
+				<option value="kagome">Kagome</option>
+				<option value="kagomeWrap">Kagome (Wraparound)</option>
+				<option value="octagonal">Octagonal</option>
+				<option value="dodecagonal">Dodecagonal</option>
+			</select>
+			<br>
+			<br>
+			<label for="width">Width:</label>
+			<input type="number" id="width" min="2" max="99" value="5">
+			<label for="height">Height:</label>
+			<input type="number" id="height" min="2" max="99" value="5">
+			<br>
+			<br>
+			<button onclick="game.makeGameFromUI();">Create!</button>
+		</div>
+		<br>
+		<label for="zoom">Zoom level:</label>
+		<input
+			type="range" id="zoom" min="0" max="10" value="0"
+			oninput="zoomLevel = Math.pow(1.1, Number(this.value)); initBoard();"
+		>
+		<h2 id="win-text" style="display: none;">You won!</h2>
+		<span class="c-game-board">
+			<br>
+			Time used:
+			<span id="time-text">0s</span>
+			<button onclick="resetGame();">Restart game</button>
+			<br>
+			<br>
+		</span>
+		<canvas id="c"></canvas>
+		<details class="c-options">
+			<summary><b>Options</b></summary>
+			<span>
+				<b>Theme:<br/></b>
+				<button class="c-theme c-theme-default">Default</button>
+				<button class="c-theme c-theme-light">Light</button>
+				<button class="c-theme c-theme-dark">Dark</button>
+				<button class="c-theme c-theme-black">Black</button>
+				<button class="c-theme c-theme-mystic">Mystic</button>
+			</span>
+		</details>
+	</body>
+</html>
